@@ -5,18 +5,21 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-pdf:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
       
       - name: Install dependencies
         run: |
@@ -26,52 +29,36 @@ jobs:
       
       - name: Generate PDF from JSON Resume
         run: |
-          resume export resume-json.pdf --resume resume.json --theme elegant || true
+          resume export resume-json.pdf --resume resume.json --theme elegant || echo "JSON Resume export failed"
       
       - name: Generate PDF from Markdown
         run: |
           pandoc RESUME.md -o resume-markdown.pdf \
             --pdf-engine=xelatex \
             -V geometry:margin=1in \
-            -V fontsize=11pt || true
+            -V fontsize=11pt || echo "Markdown PDF export failed"
+      
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
       
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ github.run_number }}
-          release_name: Resume v${{ github.run_number }}
+          name: Resume v${{ github.run_number }}
           body: |
-            Automated resume PDF generation
+            📄 **Professional Resume - Tawfik Ayade**
             
             📥 Download the latest version of my resume:
-            - `resume-json.pdf` - Generated from JSON Resume
             - `resume-markdown.pdf` - Generated from Markdown
+            - `resume-json.pdf` - Generated from JSON Resume (if available)
             
-            Generated on: ${{ github.event.head_commit.timestamp }}
+            🗓️ Generated on: ${{ steps.date.outputs.date }}
+            🔗 View online: https://tawfik-software.github.io/cv-portfolio/
+          files: |
+            resume-*.pdf
           draft: false
           prerelease: false
-      
-      - name: Upload JSON Resume PDF
-        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./resume-json.pdf
-          asset_name: resume-json.pdf
-          asset_content_type: application/pdf
-        continue-on-error: true
-      
-      - name: Upload Markdown Resume PDF
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./resume-markdown.pdf
-          asset_name: resume-markdown.pdf
-          asset_content_type: application/pdf
-        continue-on-error: true
