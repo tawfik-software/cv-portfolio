@@ -1,0 +1,252 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Tawfik Ayade",
+    "label": "Full-Stack Mobile Developer | React Native Specialist",
+    "image": "",
+    "email": "",
+    "phone": "",
+    "url": "https://github.com/tawfik-software",
+    "summary": "Passionate Full-Stack Mobile Developer specializing in React Native for cross-platform applications. Experienced in building scalable mobile solutions for Android and iOS with a strong focus on performance, user experience, and modern design principles. Combining technical expertise with UI/UX sensibility to deliver exceptional mobile applications.",
+    "location": {
+      "countryCode": "BE",
+      "city": "Brussels",
+      "region": "Brussels-Capital Region"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "tawfik-software",
+        "url": "https://github.com/tawfik-software"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "tawfik-ayade-a61621212",
+        "url": "https://www.linkedin.com/in/tawfik-ayade-a61621212"
+      },
+      {
+        "network": "Twitter",
+        "username": "Tawfikcodes",
+        "url": "https://twitter.com/Tawfikcodes"
+      },
+      {
+        "network": "Instagram",
+        "username": "tawfikcodes",
+        "url": "https://instagram.com/tawfikcodes"
+      },
+      {
+        "network": "Threads",
+        "username": "tawfikcodes",
+        "url": "https://threads.com/@tawfikcodes"
+      },
+      {
+        "network": "YouTube",
+        "username": "tawfjkfreelancer",
+        "url": "https://youtube.com/@tawfjkfreelancer"
+      },
+      {
+        "network": "Twitch",
+        "username": "tawfiksoftware",
+        "url": "https://twitch.tv/tawfiksoftware"
+      },
+      {
+        "network": "Discord",
+        "username": "tawfjkoff",
+        "url": "https://discord.com/users/tawfjkoff"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Freelance",
+      "position": "Full-Stack Mobile Developer",
+      "startDate": "2023-01",
+      "url": "https://github.com/tawfik-software",
+      "summary": "Developing cross-platform mobile applications using React Native for various clients.",
+      "highlights": [
+        "Built and deployed production-ready React Native applications for iOS and Android",
+        "Implemented in-app purchases and subscription systems using RevenueCat",
+        "Integrated Firebase services including Authentication, Firestore, and Analytics",
+        "Created responsive and accessible user interfaces with TailwindCSS",
+        "Developed multi-language support for international applications",
+        "Optimized application performance and reduced bundle size",
+        "Established CI/CD pipelines for automated deployments"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Self-Taught Developer",
+      "area": "Computer Science & Mobile Development",
+      "studyType": "Continuous Learning",
+      "startDate": "2021-01",
+      "courses": [
+        "React Native Development",
+        "TypeScript & JavaScript",
+        "Mobile UI/UX Design",
+        "Backend Development with Node.js",
+        "Database Design & Management"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Mobile Development",
+      "level": "Advanced",
+      "keywords": [
+        "React Native",
+        "Android",
+        "iOS",
+        "TypeScript",
+        "JavaScript",
+        "Expo",
+        "Redux"
+      ]
+    },
+    {
+      "name": "Frontend Development",
+      "level": "Advanced",
+      "keywords": [
+        "React",
+        "TailwindCSS",
+        "NativeWind",
+        "Responsive Design",
+        "Component Architecture"
+      ]
+    },
+    {
+      "name": "Backend Development",
+      "level": "Intermediate",
+      "keywords": [
+        "Node.js",
+        "NestJS",
+        "Express.js",
+        "REST APIs",
+        "Firebase",
+        "WebSockets"
+      ]
+    },
+    {
+      "name": "Databases",
+      "level": "Intermediate",
+      "keywords": [
+        "MongoDB",
+        "MySQL",
+        "Firebase Firestore",
+        "Database Design",
+        "Query Optimization"
+      ]
+    },
+    {
+      "name": "Design",
+      "level": "Intermediate",
+      "keywords": [
+        "Figma",
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Sketch",
+        "After Effects",
+        "UI/UX Design"
+      ]
+    },
+    {
+      "name": "Tools & Technologies",
+      "level": "Advanced",
+      "keywords": [
+        "Git",
+        "GitHub",
+        "VS Code",
+        "Xcode",
+        "Android Studio",
+        "Google Cloud Platform"
+      ]
+    },
+    {
+      "name": "Programming Languages",
+      "level": "Advanced",
+      "keywords": [
+        "TypeScript",
+        "JavaScript",
+        "Kotlin",
+        "Java",
+        "SQL"
+      ]
+    },
+    {
+      "name": "Web3",
+      "level": "Beginner",
+      "keywords": [
+        "Ethereum",
+        "MetaMask",
+        "Smart Contracts"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "French",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Professional working proficiency"
+    },
+    {
+      "language": "Arabic",
+      "fluency": "Professional working proficiency"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Technology",
+      "keywords": [
+        "Mobile Development",
+        "Cross-Platform Solutions",
+        "Performance Optimization",
+        "Open Source"
+      ]
+    },
+    {
+      "name": "Content Creation",
+      "keywords": [
+        "Tech Tutorials",
+        "Live Coding",
+        "Community Building"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Focus App",
+      "description": "Mobile meditation and focus application with in-app purchases and multi-language support",
+      "highlights": [
+        "Built with React Native and TypeScript",
+        "Integrated RevenueCat for subscription management",
+        "Implemented multi-language support (EN, FR, ES, IT, AR)",
+        "Firebase integration for analytics and authentication",
+        "Custom audio player for meditation sessions",
+        "Available on iOS and Android"
+      ],
+      "keywords": [
+        "React Native",
+        "TypeScript",
+        "Firebase",
+        "RevenueCat",
+        "Expo",
+        "TailwindCSS"
+      ],
+      "startDate": "2024-01",
+      "url": "https://github.com/tawfik-software/focusapp",
+      "roles": [
+        "Lead Developer",
+        "Designer"
+      ],
+      "type": "mobile application"
+    }
+  ],
+  "meta": {
+    "canonical": "https://raw.githubusercontent.com/tawfik-software/cv-portfolio/main/resume.json",
+    "version": "v1.0.0",
+    "lastModified": "2026-01-07"
+  }
+}

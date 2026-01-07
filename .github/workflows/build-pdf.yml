@@ -1,0 +1,77 @@
+name: Generate Resume PDF
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: |
+          npm install -g resume-cli
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex
+      
+      - name: Generate PDF from JSON Resume
+        run: |
+          resume export resume-json.pdf --resume resume.json --theme elegant || true
+      
+      - name: Generate PDF from Markdown
+        run: |
+          pandoc RESUME.md -o resume-markdown.pdf \
+            --pdf-engine=xelatex \
+            -V geometry:margin=1in \
+            -V fontsize=11pt || true
+      
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Resume v${{ github.run_number }}
+          body: |
+            Automated resume PDF generation
+            
+            📥 Download the latest version of my resume:
+            - `resume-json.pdf` - Generated from JSON Resume
+            - `resume-markdown.pdf` - Generated from Markdown
+            
+            Generated on: ${{ github.event.head_commit.timestamp }}
+          draft: false
+          prerelease: false
+      
+      - name: Upload JSON Resume PDF
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./resume-json.pdf
+          asset_name: resume-json.pdf
+          asset_content_type: application/pdf
+        continue-on-error: true
+      
+      - name: Upload Markdown Resume PDF
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./resume-markdown.pdf
+          asset_name: resume-markdown.pdf
+          asset_content_type: application/pdf
+        continue-on-error: true
