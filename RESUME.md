@@ -148,7 +148,8 @@ Currently focusing on:
 
 - **French** - Native
 - **English** - Professional working proficiency
-- **Arabic** - Professional working proficiency
+- **Arabic** - Native / Professional working proficiency
+- **Italian** - Conversation
 
 ---
 
